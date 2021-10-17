@@ -66,8 +66,6 @@ def main():
     MIA = 5
     BOS = 6
    
-    num_nodes = 7
-    
     SFO1 = Edge(SFO, LAX, 337)
     SFO2 = Edge(SFO, ORD, 1846)
     SFO3 = Edge(SFO, DFW, 1464)
@@ -91,6 +89,7 @@ def main():
 
     MIA = Edge(MIA, BOS, 1258)
 
+    num_nodes = 7
     g2 = Graph(num_nodes, [SFO1, SFO2, SFO3, SFO4, LAX1, LAX2, ORD1, ORD2, ORD3, DFW, JFK1, JFK2, MIA])
     g2.KruskalMST()
 
