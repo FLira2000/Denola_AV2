@@ -1,13 +1,13 @@
 class Edge:
 
-   def __init__(self, src, dst, weight) :
+   def __init__(self, src, dst, weight):
        self.src = src
        self.dst = dst
        self.weight = weight
 
 class Graph:
 
-    def __init__(self, num_nodes, edgelist) :
+    def __init__(self, num_nodes, edgelist):
         self.num_nodes = num_nodes
         self.edgelist  = edgelist
         self.parent = []
@@ -16,7 +16,7 @@ class Graph:
         self.mst = []
 
     def FindParent (self, node):
-         if node == self.parent[node] :
+         if node == self.parent[node]:
             return node
          return self.FindParent(self.parent[node])
 
@@ -26,7 +26,7 @@ class Graph:
         self.edgelist.sort(key = lambda Edge : Edge.weight)
 
         self.parent = [None] * self.num_nodes
-        self.rank   = [None] * self.num_nodes
+        self.rank = [None] * self.num_nodes
 
         for n in range(self.num_nodes):
             self.parent[n] = n # Todos os nodes sao pais deles mesmos no comeco
@@ -49,7 +49,7 @@ class Graph:
 
         print("\nArestas minimas para a arvore no grafo:")
         cost = 0
-        for edge in self.mst :
+        for edge in self.mst:
             dict_places = {0: "SFO", 1: "LAX", 2: "ORD", 3: "DFW", 4: "JFK", 5: "MIA", 6: "BOS"}
 
             print("[" + dict_places[edge.src] + " - " + dict_places[edge.dst] + "](" + str(edge.weight) + ")")
